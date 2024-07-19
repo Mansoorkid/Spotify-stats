@@ -1,7 +1,7 @@
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from auth import get_spotify_client
-from stats import display_top_tracks, display_top_artists, display_menu
+from stats import display_top_tracks, display_top_artists, display_menu,display_top_albums,display_top_tracks_by_genre
 from dotenv import load_dotenv
 import os
 
@@ -18,6 +18,11 @@ def main():
         elif choice == '2':
             display_top_artists(sp)
         elif choice == '3':
+            display_top_albums(sp)
+        elif choice == '4':
+            genre = input("Enter a genre: ")
+            display_top_tracks_by_genre(sp, genre)
+        elif choice == '5':
             print("Goodbye!")
             break
         else:
